@@ -1,0 +1,9 @@
+# Ignore system-specific files and folders
+**/AppData/
+**/Documents/
+**/Downloads/
+**/.android/
+**/.vscode/
+**/.idea/
+**/.gitconfig
+*.log
