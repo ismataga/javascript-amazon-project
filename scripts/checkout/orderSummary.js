@@ -10,7 +10,7 @@ const today = dayjs();
 const deliveryDate = today.add(7, "days");
 deliveryDate.format("dddd, MMMM D");
 
-let cartSummaryHTML = '';
+let cartSummaryHTML = "";
 
 cart.forEach((cartItem) => {
   const productId = cartItem.productId;
@@ -21,11 +21,9 @@ cart.forEach((cartItem) => {
     if (product.id === product) {
       machingProduct = product;
     }
-  })
-  
-  
-  
- cartSummaryHTML += `
+  });
+
+  cartSummaryHTML += `
     <div class="cart-item-container 
     js-cart-item-container-${machingProduct.id}">
             <div class="delivery-date">
@@ -45,7 +43,9 @@ cart.forEach((cartItem) => {
                 </div>
                 <div class="product-quantity">
                   <span>
-                    Quantity: <span class="quantity-label">${cartItem.quantity}</span>
+                    Quantity: <span class="quantity-label">${
+                      cartItem.quantity
+                    }</span>
                   </span>
                   <span class="update-quantity-link link-primary">
                     Update
@@ -106,19 +106,17 @@ cart.forEach((cartItem) => {
     `;
 });
 
-document.querySelector('.js-order-summary')
-.innerHTML=cartSummaryHTML;
+document.querySelector(".js-order-summary").innerHTML = cartSummaryHTML;
 
-document.querySelector('.js-delete-link'
-    .forEach((link)=>{
-        link.addEventListener('click',()=>{
-          const productId=link.dataset.productId;
-          removeFromCart(productId);
+document.querySelector(
+  ".js-delete-link".forEach((link) => {
+    link.addEventListener("click", () => {
+      const productId = link.dataset.productId;
+      removeFromCart(productId);
 
-         const container= document.querySelector(
-            `.js-cart-item-container-${productId}`
-          )
-            
-        })
-    })
-)
+      const container = document.querySelector(
+        `.js-cart-item-container-${productId}`
+      );
+    });
+  })
+);
