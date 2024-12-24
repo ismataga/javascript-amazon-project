@@ -1,5 +1,5 @@
 import { cart, removeFromCart } from "../data/cart.js";
-import { products } from "../data/products.js";
+import { products, getProduct()} from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 import { hello } from "https://unpkg.com/supersimpledev@1.0.1/hello.esm.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
@@ -14,14 +14,8 @@ let cartSummaryHTML = "";
 
 cart.forEach((cartItem) => {
   const productId = cartItem.productId;
+  const machingProduct= getProduct(productId);
 
-  let machingProduct;
-
-  products.forEach((product) => {
-    if (product.id === product) {
-      machingProduct = product;
-    }
-  });
 
   cartSummaryHTML += `
     <div class="cart-item-container 
